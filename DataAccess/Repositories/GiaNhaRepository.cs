@@ -19,7 +19,7 @@ namespace DataAccess.Repositories
             return GetAll().Where(g => g.MaNha == maNha && g.MaLoaiGia == type);
         }
 
-        public new GiaNha Create(GiaNha giaNha)
+        public new GiaNha Create(GiaNha giaNha) 
         {
             giaNha.NgayKetThuc = null;
             if (giaNha.MaNha.HasValue && giaNha.MaLoaiGia.HasValue)
