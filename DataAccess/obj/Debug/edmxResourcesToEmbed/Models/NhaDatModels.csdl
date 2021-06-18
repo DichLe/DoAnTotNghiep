@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NhaDatModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ChiTietMuaThue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaMuaThue" Type="Int32" />
+    <Property Name="MaNha" Type="Int32" />
+    <Property Name="LoaiGiaoDich" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SoNamThue" Type="Int32" />
+    <Property Name="MaGia" Type="Int32" />
+    <Property Name="Gia" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="GiaNha" Relationship="Self.FK__ChiTietMu__MaGia__4CA06362" FromRole="ChiTietMuaThue" ToRole="GiaNha" />
+    <NavigationProperty Name="MuaThueNha" Relationship="Self.FK__ChiTietMu__MaMua__4AB81AF0" FromRole="ChiTietMuaThue" ToRole="MuaThueNha" />
+    <NavigationProperty Name="Nha" Relationship="Self.FK__ChiTietMu__MaNha__4BAC3F29" FromRole="ChiTietMuaThue" ToRole="Nha" />
+  </EntityType>
+  <EntityType Name="ChiTietNha">
+    <Key>
+      <PropertyRef Name="MaNha" />
+    </Key>
+    <Property Name="MaNha" Type="Int32" Nullable="false" />
+    <Property Name="DienTich" Type="Int32" />
+    <Property Name="SoPhong" Type="Int32" />
+    <NavigationProperty Name="Nha" Relationship="Self.FK__ChiTietNh__MaNha__4222D4EF" FromRole="ChiTietNha" ToRole="Nha" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CommonName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FormalName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CountryType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CountrySubType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Sovereignty" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Capital" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TelephoneCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CountryCode3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CountryNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InternetCountryCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SortOrder" Type="Int32" />
+    <Property Name="IsPublished" Type="Boolean" />
+    <Property Name="Flags" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Provinces" Relationship="Self.FK_Province_Country" FromRole="Country" ToRole="Province" />
+  </EntityType>
+  <EntityType Name="District">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LatiLongTude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProvinceId" Type="Int32" Nullable="false" />
+    <Property Name="SortOrder" Type="Int32" />
+    <Property Name="IsPublished" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Nhas" Relationship="Self.FK__Nha__MaHuyen__37A5467C" FromRole="District" ToRole="Nha" />
+    <NavigationProperty Name="Province" Relationship="Self.FK_District_Province" FromRole="District" ToRole="Province" />
+    <NavigationProperty Name="Wards" Relationship="Self.FK_Ward_District" FromRole="District" ToRole="Ward" />
+  </EntityType>
+  <EntityType Name="GiaNha">
+    <Key>
+      <PropertyRef Name="MaGia" />
+    </Key>
+    <Property Name="MaGia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaNha" Type="Int32" />
+    <Property Name="MaLoaiGia" Type="Int32" />
+    <Property Name="Gia" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NgayApDung" Type="DateTime" Precision="3" />
+    <Property Name="NgayKetThuc" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ChiTietMuaThues" Relationship="Self.FK__ChiTietMu__MaGia__4CA06362" FromRole="GiaNha" ToRole="ChiTietMuaThue" />
+    <NavigationProperty Name="LoaiGia" Relationship="Self.FK__GiaNha__MaLoaiGi__3E52440B" FromRole="GiaNha" ToRole="LoaiGia" />
+    <NavigationProperty Name="Nha" Relationship="Self.FK__GiaNha__MaNha__3D5E1FD2" FromRole="GiaNha" ToRole="Nha" />
+  </EntityType>
+  <EntityType Name="LoaiGia">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Loai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GiaNhas" Relationship="Self.FK__GiaNha__MaLoaiGi__3E52440B" FromRole="LoaiGia" ToRole="GiaNha" />
+  </EntityType>
+  <EntityType Name="LoaiNha">
+    <Key>
+      <PropertyRef Name="MaLoai" />
+    </Key>
+    <Property Name="MaLoai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLoai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Nhas" Relationship="Self.FK__Nha__MaLoai__35BCFE0A" FromRole="LoaiNha" ToRole="Nha" />
+  </EntityType>
+  <EntityType Name="MuaThueNha">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NgayGiaoDich" Type="DateTime" Precision="3" />
+    <Property Name="TenKhach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChiTietMuaThues" Relationship="Self.FK__ChiTietMu__MaMua__4AB81AF0" FromRole="MuaThueNha" ToRole="ChiTietMuaThue" />
+  </EntityType>
+  <EntityType Name="Nha">
+    <Key>
+      <PropertyRef Name="MaNha" />
+    </Key>
+    <Property Name="MaNha" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaLoai" Type="Int32" />
+    <Property Name="MaXa" Type="Int32" />
+    <Property Name="MaHuyen" Type="Int32" />
+    <Property Name="MaTinh" Type="Int32" />
+    <Property Name="MoTa" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThai" Type="Int32" />
+    <NavigationProperty Name="ChiTietMuaThues" Relationship="Self.FK__ChiTietMu__MaNha__4BAC3F29" FromRole="Nha" ToRole="ChiTietMuaThue" />
+    <NavigationProperty Name="ChiTietNha" Relationship="Self.FK__ChiTietNh__MaNha__4222D4EF" FromRole="Nha" ToRole="ChiTietNha" />
+    <NavigationProperty Name="District" Relationship="Self.FK__Nha__MaHuyen__37A5467C" FromRole="Nha" ToRole="District" />
+    <NavigationProperty Name="GiaNhas" Relationship="Self.FK__GiaNha__MaNha__3D5E1FD2" FromRole="Nha" ToRole="GiaNha" />
+    <NavigationProperty Name="LoaiNha" Relationship="Self.FK__Nha__MaLoai__35BCFE0A" FromRole="Nha" ToRole="LoaiNha" />
+    <NavigationProperty Name="Province" Relationship="Self.FK__Nha__MaTinh__38996AB5" FromRole="Nha" ToRole="Province" />
+    <NavigationProperty Name="Ward" Relationship="Self.FK__Nha__MaXa__36B12243" FromRole="Nha" ToRole="Ward" />
+    <NavigationProperty Name="TrangThaiNha" Relationship="Self.fk_TT" FromRole="Nha" ToRole="TrangThaiNha" />
+  </EntityType>
+  <EntityType Name="Province">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TelephoneCode" Type="Int32" />
+    <Property Name="ZipCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="CountryCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="SortOrder" Type="Int32" />
+    <Property Name="IsPublished" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_Province_Country" FromRole="Province" ToRole="Country" />
+    <NavigationProperty Name="Districts" Relationship="Self.FK_District_Province" FromRole="Province" ToRole="District" />
+    <NavigationProperty Name="Nhas" Relationship="Self.FK__Nha__MaTinh__38996AB5" FromRole="Province" ToRole="Nha" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TrangThaiNha">
+    <Key>
+      <PropertyRef Name="MaTrangThai" />
+    </Key>
+    <Property Name="MaTrangThai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Nhas" Relationship="Self.fk_TT" FromRole="TrangThaiNha" ToRole="Nha" />
+  </EntityType>
+  <EntityType Name="Ward">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LatiLongTude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DistrictID" Type="Int32" Nullable="false" />
+    <Property Name="SortOrder" Type="Int32" Nullable="false" />
+    <Property Name="IsPublished" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="District" Relationship="Self.FK_Ward_District" FromRole="Ward" ToRole="District" />
+    <NavigationProperty Name="Nhas" Relationship="Self.FK__Nha__MaXa__36B12243" FromRole="Ward" ToRole="Nha" />
+  </EntityType>
+  <Association Name="FK__ChiTietMu__MaGia__4CA06362">
+    <End Role="GiaNha" Type="Self.GiaNha" Multiplicity="0..1" />
+    <End Role="ChiTietMuaThue" Type="Self.ChiTietMuaThue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiaNha">
+        <PropertyRef Name="MaGia" />
+      </Principal>
+      <Dependent Role="ChiTietMuaThue">
+        <PropertyRef Name="MaGia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChiTietMu__MaMua__4AB81AF0">
+    <End Role="MuaThueNha" Type="Self.MuaThueNha" Multiplicity="0..1" />
+    <End Role="ChiTietMuaThue" Type="Self.ChiTietMuaThue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MuaThueNha">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChiTietMuaThue">
+        <PropertyRef Name="MaMuaThue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChiTietMu__MaNha__4BAC3F29">
+    <End Role="Nha" Type="Self.Nha" Multiplicity="0..1" />
+    <End Role="ChiTietMuaThue" Type="Self.ChiTietMuaThue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nha">
+        <PropertyRef Name="MaNha" />
+      </Principal>
+      <Dependent Role="ChiTietMuaThue">
+        <PropertyRef Name="MaNha" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChiTietNh__MaNha__4222D4EF">
+    <End Role="Nha" Type="Self.Nha" Multiplicity="1" />
+    <End Role="ChiTietNha" Type="Self.ChiTietNha" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Nha">
+        <PropertyRef Name="MaNha" />
+      </Principal>
+      <Dependent Role="ChiTietNha">
+        <PropertyRef Name="MaNha" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Province_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Province" Type="Self.Province" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Province">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Nha__MaHuyen__37A5467C">
+    <End Role="District" Type="Self.District" Multiplicity="0..1" />
+    <End Role="Nha" Type="Self.Nha" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Nha">
+        <PropertyRef Name="MaHuyen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_District_Province">
+    <End Role="Province" Type="Self.Province" Multiplicity="1" />
+    <End Role="District" Type="Self.District" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Province">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="District">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ward_District">
+    <End Role="District" Type="Self.District" Multiplicity="1" />
+    <End Role="Ward" Type="Self.Ward" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ward">
+        <PropertyRef Name="DistrictID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GiaNha__MaLoaiGi__3E52440B">
+    <End Role="LoaiGia" Type="Self.LoaiGia" Multiplicity="0..1" />
+    <End Role="GiaNha" Type="Self.GiaNha" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiGia">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GiaNha">
+        <PropertyRef Name="MaLoaiGia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GiaNha__MaNha__3D5E1FD2">
+    <End Role="Nha" Type="Self.Nha" Multiplicity="0..1" />
+    <End Role="GiaNha" Type="Self.GiaNha" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nha">
+        <PropertyRef Name="MaNha" />
+      </Principal>
+      <Dependent Role="GiaNha">
+        <PropertyRef Name="MaNha" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Nha__MaLoai__35BCFE0A">
+    <End Role="LoaiNha" Type="Self.LoaiNha" Multiplicity="0..1" />
+    <End Role="Nha" Type="Self.Nha" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiNha">
+        <PropertyRef Name="MaLoai" />
+      </Principal>
+      <Dependent Role="Nha">
+        <PropertyRef Name="MaLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Nha__MaTinh__38996AB5">
+    <End Role="Province" Type="Self.Province" Multiplicity="0..1" />
+    <End Role="Nha" Type="Self.Nha" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Province">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Nha">
+        <PropertyRef Name="MaTinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Nha__MaXa__36B12243">
+    <End Role="Ward" Type="Self.Ward" Multiplicity="0..1" />
+    <End Role="Nha" Type="Self.Nha" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ward">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Nha">
+        <PropertyRef Name="MaXa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_TT">
+    <End Role="TrangThaiNha" Type="Self.TrangThaiNha" Multiplicity="0..1" />
+    <End Role="Nha" Type="Self.Nha" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrangThaiNha">
+        <PropertyRef Name="MaTrangThai" />
+      </Principal>
+      <Dependent Role="Nha">
+        <PropertyRef Name="TrangThai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NhaDatEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ChiTietMuaThues" EntityType="Self.ChiTietMuaThue" />
+    <EntitySet Name="ChiTietNhas" EntityType="Self.ChiTietNha" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="Districts" EntityType="Self.District" />
+    <EntitySet Name="GiaNhas" EntityType="Self.GiaNha" />
+    <EntitySet Name="LoaiGias" EntityType="Self.LoaiGia" />
+    <EntitySet Name="LoaiNhas" EntityType="Self.LoaiNha" />
+    <EntitySet Name="MuaThueNhas" EntityType="Self.MuaThueNha" />
+    <EntitySet Name="Nhas" EntityType="Self.Nha" />
+    <EntitySet Name="Provinces" EntityType="Self.Province" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TrangThaiNhas" EntityType="Self.TrangThaiNha" />
+    <EntitySet Name="Wards" EntityType="Self.Ward" />
+    <AssociationSet Name="FK__ChiTietMu__MaGia__4CA06362" Association="Self.FK__ChiTietMu__MaGia__4CA06362">
+      <End Role="GiaNha" EntitySet="GiaNhas" />
+      <End Role="ChiTietMuaThue" EntitySet="ChiTietMuaThues" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChiTietMu__MaMua__4AB81AF0" Association="Self.FK__ChiTietMu__MaMua__4AB81AF0">
+      <End Role="MuaThueNha" EntitySet="MuaThueNhas" />
+      <End Role="ChiTietMuaThue" EntitySet="ChiTietMuaThues" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChiTietMu__MaNha__4BAC3F29" Association="Self.FK__ChiTietMu__MaNha__4BAC3F29">
+      <End Role="Nha" EntitySet="Nhas" />
+      <End Role="ChiTietMuaThue" EntitySet="ChiTietMuaThues" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChiTietNh__MaNha__4222D4EF" Association="Self.FK__ChiTietNh__MaNha__4222D4EF">
+      <End Role="Nha" EntitySet="Nhas" />
+      <End Role="ChiTietNha" EntitySet="ChiTietNhas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Province_Country" Association="Self.FK_Province_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Province" EntitySet="Provinces" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Nha__MaHuyen__37A5467C" Association="Self.FK__Nha__MaHuyen__37A5467C">
+      <End Role="District" EntitySet="Districts" />
+      <End Role="Nha" EntitySet="Nhas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_District_Province" Association="Self.FK_District_Province">
+      <End Role="Province" EntitySet="Provinces" />
+      <End Role="District" EntitySet="Districts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ward_District" Association="Self.FK_Ward_District">
+      <End Role="District" EntitySet="Districts" />
+      <End Role="Ward" EntitySet="Wards" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GiaNha__MaLoaiGi__3E52440B" Association="Self.FK__GiaNha__MaLoaiGi__3E52440B">
+      <End Role="LoaiGia" EntitySet="LoaiGias" />
+      <End Role="GiaNha" EntitySet="GiaNhas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GiaNha__MaNha__3D5E1FD2" Association="Self.FK__GiaNha__MaNha__3D5E1FD2">
+      <End Role="Nha" EntitySet="Nhas" />
+      <End Role="GiaNha" EntitySet="GiaNhas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Nha__MaLoai__35BCFE0A" Association="Self.FK__Nha__MaLoai__35BCFE0A">
+      <End Role="LoaiNha" EntitySet="LoaiNhas" />
+      <End Role="Nha" EntitySet="Nhas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Nha__MaTinh__38996AB5" Association="Self.FK__Nha__MaTinh__38996AB5">
+      <End Role="Province" EntitySet="Provinces" />
+      <End Role="Nha" EntitySet="Nhas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Nha__MaXa__36B12243" Association="Self.FK__Nha__MaXa__36B12243">
+      <End Role="Ward" EntitySet="Wards" />
+      <End Role="Nha" EntitySet="Nhas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_TT" Association="Self.fk_TT">
+      <End Role="TrangThaiNha" EntitySet="TrangThaiNhas" />
+      <End Role="Nha" EntitySet="Nhas" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(NhaDatModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(NhaDatModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

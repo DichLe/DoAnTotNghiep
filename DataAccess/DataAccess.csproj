@@ -51,17 +51,72 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Models\ChiTietMuaThue.cs">
+      <DependentUpon>NhaDatModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChiTietNha.cs">
+      <DependentUpon>NhaDatModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Country.cs">
+      <DependentUpon>NhaDatModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\District.cs">
+      <DependentUpon>NhaDatModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GiaNha.cs">
+      <DependentUpon>NhaDatModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoaiGia.cs">
+      <DependentUpon>NhaDatModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoaiNha.cs">
+      <DependentUpon>NhaDatModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MuaThueNha.cs">
+      <DependentUpon>NhaDatModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Nha.cs">
+      <DependentUpon>NhaDatModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\NhaDatModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>NhaDatModels.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NhaDatModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NhaDatModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhaDatModels.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>NhaDatModels.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Province.cs">
+      <DependentUpon>NhaDatModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>NhaDatModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>NhaDatModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>NhaDatModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TrangThaiNha.cs">
+      <DependentUpon>NhaDatModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ward.cs">
+      <DependentUpon>NhaDatModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\GiaNhaRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IBaseRepository.cs" />
+    <Compile Include="Repositories\LoaiNhaRepository.cs" />
+    <Compile Include="Repositories\NhaRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\NhaDatModels.edmx">
@@ -80,10 +135,17 @@
     <Content Include="Models\NhaDatModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>NhaDatModels.Context.cs</LastGenOutput>
+      <DependentUpon>NhaDatModels.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\NhaDatModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NhaDatModels.edmx</DependentUpon>
+      <LastGenOutput>NhaDatModels.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
