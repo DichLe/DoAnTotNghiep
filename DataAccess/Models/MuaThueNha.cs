@@ -9,6 +9,7 @@
 
 namespace DataAccess.Models
 {
+    using DataAccess.Repositories;
     using System;
     using System.Collections.Generic;
     
@@ -24,7 +25,15 @@ namespace DataAccess.Models
         public Nullable<System.DateTime> NgayGiaoDich { get; set; }
         public string TenKhach { get; set; }
         public string SDT { get; set; }
-    
+        public decimal TongValue
+        {
+            get
+            {
+                return ChiTietMuaThues.SumTotalValue();
+            }
+        }
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietMuaThue> ChiTietMuaThues { get; set; }
     }

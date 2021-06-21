@@ -70,6 +70,7 @@ C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\Microsoft.Owin.Security.Twitter.
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\Newtonsoft.Json.dll
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\Owin.dll
+C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\Swashbuckle.Core.dll
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\System.Net.Http.Formatting.dll
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\System.Web.Helpers.dll
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\System.Web.Http.dll
@@ -81,9 +82,12 @@ C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\System.Web.Razor.dll
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\System.Web.WebPages.Deployment.dll
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\System.Web.WebPages.dll
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\System.Web.WebPages.Razor.dll
+C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\WebActivatorEx.dll
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\WebGrease.dll
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\DataAccess.pdb
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\DataAccess.dll.config
+C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\EntityFramework.xml
+C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\EntityFramework.SqlServer.xml
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\Newtonsoft.Json.xml
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\System.Net.Http.Formatting.xml
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\System.Web.Helpers.xml
@@ -96,8 +100,6 @@ C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\System.Web.WebPages.xml
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\System.Web.WebPages.Razor.xml
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\Antlr3.Runtime.pdb
-C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\EntityFramework.xml
-C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\EntityFramework.SqlServer.xml
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\Hai\source\repos\DoAnTotNghiep\API\bin\Microsoft.AspNet.Identity.EntityFramework.xml

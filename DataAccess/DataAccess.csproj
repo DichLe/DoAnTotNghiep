@@ -113,10 +113,17 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\ChiTietMuaThueRepository.cs" />
     <Compile Include="Repositories\GiaNhaRepository.cs" />
+    <Compile Include="Repositories\HuyenRepository.cs" />
     <Compile Include="Repositories\Interfaces\IBaseRepository.cs" />
+    <Compile Include="Repositories\LoaiGiaRepository.cs" />
     <Compile Include="Repositories\LoaiNhaRepository.cs" />
+    <Compile Include="Repositories\MuaThueRepository.cs" />
     <Compile Include="Repositories\NhaRepository.cs" />
+    <Compile Include="Repositories\StaticEntity.cs" />
+    <Compile Include="Repositories\TinhRepository.cs" />
+    <Compile Include="Repositories\XaRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\NhaDatModels.edmx">

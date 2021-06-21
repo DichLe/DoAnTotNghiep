@@ -12,7 +12,12 @@ namespace API
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.MapRoute(
+                name: "Admin",
+                url: "admin/{controller}/{action}/{id}",
+                defaults: new { controller = "Nhas", action = "GetNhas", id = UrlParameter.Optional },
+                namespaces: new string[] { "API.Controllers.Admin" }
+            );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

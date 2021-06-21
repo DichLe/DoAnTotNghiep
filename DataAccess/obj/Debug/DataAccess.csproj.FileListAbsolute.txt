@@ -5,7 +5,6 @@ C:\Users\Hai\source\repos\DoAnTotNghiep\DataAccess\bin\Debug\EntityFramework.dll
 C:\Users\Hai\source\repos\DoAnTotNghiep\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Hai\source\repos\DoAnTotNghiep\DataAccess\bin\Debug\EntityFramework.xml
 C:\Users\Hai\source\repos\DoAnTotNghiep\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Hai\source\repos\DoAnTotNghiep\DataAccess\obj\Debug\DataAccess.csprojAssemblyReference.cache
 C:\Users\Hai\source\repos\DoAnTotNghiep\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
 C:\Users\Hai\source\repos\DoAnTotNghiep\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
 C:\Users\Hai\source\repos\DoAnTotNghiep\DataAccess\obj\Debug\DataAccess.dll

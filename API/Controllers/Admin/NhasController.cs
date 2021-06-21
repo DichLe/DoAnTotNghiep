@@ -9,12 +9,15 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using DataAccess.Models;
+using DataAccess.Repositories;
 
 namespace API.Controllers.Admin
 {
     public class NhasController : ApiController
     {
         private NhaDatEntities db = new NhaDatEntities();
+        private NhaRepository nhaRepository = new NhaRepository();
+        private GiaNhaRepository giaNhaRepository = new GiaNhaRepository();
 
         // GET: api/Nhas
         public IQueryable<Nha> GetNhas()
@@ -74,14 +77,15 @@ namespace API.Controllers.Admin
         [ResponseType(typeof(Nha))]
         public IHttpActionResult PostNha(Nha nha)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid|| nha.GiaHienTai==null)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Nhas.Add(nha);
-            db.SaveChanges();
 
+            nhaRepository.Create(nha);
+            giaNhaRepository.Create(nha.GiaHienTai);
+            db.SaveChanges();
             return CreatedAtRoute("DefaultApi", new { id = nha.MaNha }, nha);
         }
 
@@ -101,6 +105,12 @@ namespace API.Controllers.Admin
             return Ok(nha);
         }
 
+        [HttpPost]
+        [Route("tim-kiem")]
+        public IHttpActionResult GetNhaTimKiem(int loaiNha, int xa, int huyen, int tinh, int trangthai, int loaiGia, decimal giaMin, decimal giaMax, int? index, int? size)
+        {
+            return Ok(nhaRepository.TimKiem(loaiNha, xa, huyen, tinh, trangthai, loaiGia, giaMin, giaMax, index, size));
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

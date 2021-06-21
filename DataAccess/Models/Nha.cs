@@ -14,12 +14,7 @@ namespace DataAccess.Models
     
     public partial class Nha
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Nha()
-        {
-            this.ChiTietMuaThues = new HashSet<ChiTietMuaThue>();
-            this.GiaNhas = new HashSet<GiaNha>();
-        }
+       
     
         public int MaNha { get; set; }
         public Nullable<int> MaLoai { get; set; }
@@ -39,5 +34,6 @@ namespace DataAccess.Models
         public virtual Province Province { get; set; }
         public virtual Ward Ward { get; set; }
         public virtual TrangThaiNha TrangThaiNha { get; set; }
+        public virtual GiaNha GiaHienTai { get; set; }
     }
 }
